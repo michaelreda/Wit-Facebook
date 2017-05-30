@@ -59,12 +59,19 @@ const actions = {
     console.log(error.message);
   },
   merge(sessionId, context, entities, message, cb) {
+    //if mosalsal query
     const mosalsal = firstEntityValue(entities, 'mosalsal');
     if (mosalsal) {
       context.mosalsal=mosalsal
       context.mawa3idmosalsal = "beyeegy kol youm el sa3a 10"; // store it in context
     }else{
       context.missing_mosalsal="true";
+    }
+
+    //if reminder
+    const reminderUser = firstEntityValue(entities, 'reminderUser');
+    if (reminderUser) {
+      context.reminderUser=context.mosalsal;
     }
     cb(context);
   },
