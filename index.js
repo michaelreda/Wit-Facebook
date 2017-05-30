@@ -91,6 +91,7 @@ app.post('/webhook', (req, res) => {
 
     // We retrieve the message content
     const msg = messaging.message.text;
+    console.log(msg);
     const atts = messaging.message.attachments;
 
     if (atts) {
@@ -108,7 +109,7 @@ app.post('/webhook', (req, res) => {
       // This will run all actions until our bot has nothing left to do
       wit.runActions(
         sessionId, // the user's current session
-        msg, // the user's message 
+        msg, // the user's message
         sessions[sessionId].context, // the user's current session state
         (error, context) => {
           if (error) {
