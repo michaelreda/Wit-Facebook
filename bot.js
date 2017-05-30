@@ -54,18 +54,19 @@ const actions = {
       cb();
     }
   },
-  merge(sessionId, context, entities, message, cb) {
-    // Retrieve the location entity and store it into a context field
-    const loc = firstEntityValue(entities, 'location');
-    if (loc) {
-      context.loc = loc; // store it in context
-    }
-
-    cb(context);
-  },
 
   error(sessionId, context, error) {
     console.log(error.message);
+  },
+  merge(sessionId, context, entities, message, cb) {
+    const mosalsal = firstEntityValue(entities, 'mosalsal');
+    if (mosalsal) {
+      context.mosalsal=mosalsal
+      context.mawa3idmosalsal = "beyeegy kol youm el sa3a 10"; // store it in context
+    }else{
+      context.missing_mosalsal="true";
+    }
+    cb(context);
   },
 
   // fetch-weather bot executes
