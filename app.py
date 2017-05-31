@@ -77,6 +77,8 @@ def webhook():
 								response = "you are welcome ;)"
 							elif entity["name"] == 'greetings':
 								response = "Hello"
+							elif entity["name"] == 'bye':
+								response = "bye"
 
 
 					if response == None:
