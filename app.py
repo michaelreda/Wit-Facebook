@@ -3,6 +3,7 @@ from flask import Flask, request
 from utils import wit_response
 from pymessenger import Bot
 from pprint import pprint
+import json
 
 app = Flask(__name__)
 
@@ -43,10 +44,14 @@ def webhook():
 					response = None
 
 					entities = wit_response(messaging_text)
+					file = open('/sessions/'+sender_id+'.json', 'w+')
+					pprint(json.load(file))
+
 					mosalsal=None
 					reminder= False
 					#checking for mosalsal
 					for entity in entities:
+						pprint(entity)
 						if entity.name == 'mosalsal':
 							mosalsal= entity.value
 							# response = "Ok, mawa3id {} : kol you el sa3a 10".format(str(value))
