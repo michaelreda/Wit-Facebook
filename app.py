@@ -38,7 +38,7 @@ def webhook():
 				#managing sessions
 				import datetime
 				current_time= datetime.datetime.utcnow()
-				db.sessions.update_one({'sender_id':sender_id},{'last_commit':current_time}, upsert=True) # if-find-else-update
+				db.sessions.update_one({'sender_id':sender_id}, {"$set": {"last_commit":current_time}}, upsert=True) # if-find-else-update
 
 				if messaging_event.get('message'):
 					# Extracting text message
