@@ -7,15 +7,19 @@ client = Wit(access_token = access_token)
 def wit_response(message_text):
 	resp = client.message(message_text)
 
-	entity = None
-	value = None
-
+	entities = []
 	try:
-		entity = list(resp['entities'])[0]
-		value = resp['entities'][entity][0]['value']
+		for i in range(len(list(resp['entities']))):
+			print(i)
+			entity= list(resp['entities'])[i]
+			value= resp['entities'][entity][0]['value']
+			entities.append({
+				"name":entity,
+				"value":value
+			})
 	except:
 		pass
 
-	return (entity, value)
+	return entities
 
-print(wit_response("hi"))
+pprint(wit_response("remind me with harbana menha"))

@@ -42,16 +42,36 @@ def webhook():
 
 					response = None
 
-					entity, value = wit_response(messaging_text)
-					if entity == 'mosalsal':
-						response = "Ok, mawa3id {} : kol you el sa3a 10".format(str(value))
-					elif entity == 'thanks':
-						response = "you are welcome ;)".format(str(value))
-					elif entity == 'greetings':
-						response = "Hello".format(str(value))
+					entities = wit_response(messaging_text)
+					mosalsal=None
+					reminder= False
+					#checking for mosalsal
+					for entity in entities
+					if entity.name == 'mosalsal':
+                            mosalsal= entity.value
+    						# response = "Ok, mawa3id {} : kol you el sa3a 10".format(str(value))
 
-					if response == None:
-						response = "I have no idea what you are saying!"
+                    #checking for reminders
+					for entity in entities
+    					if entity.name == 'reminderUser':
+                            reminder=True
+                            if mosalsal == None:
+                                response="please enter esm el mosalsal.."
+                            else:
+                                response="Ok I'll remind you with mosalsal "+str(mosalsal)
+
+
+                    #if no reminder and there is a mosalsal then show schedule
+                    if mosalsal!=None && !reminder:
+                        response= "mosalsal "+str(mosalsal)+" beyeegy kol youm el sa3a 10"
+                    elif entity == 'thanks':
+    					response = "you are welcome ;)".format(str(value))
+    				elif entity == 'greetings':
+    					response = "Hello".format(str(value))
+
+
+    				if response == None:
+    					response = "I have no idea what you are saying!"
 
 					bot.send_text_message(sender_id, response)
 
