@@ -1,13 +1,13 @@
 import os, sys
 from flask import Flask, request
 from pprint import pprint
-# from pymessenger import Bot
+from pymessenger import Bot
 
 app = Flask(__name__)
 
-# PAGE_ACCESS_TOKEN = "EAAL0VIHjZAZAgBAIg0QRTxz3oEYXL6vr8crg5YCuIapca1AZAcghDCLg2QbX7epmw7WJtWSWqGZAk0KhdeTcHMBrM4cDZCZCLtzYIj04tZA4jp4XkCDWrxERZAZCmE1EZAjGOMF0ejS1zxaX4awgFZC4NZB5IaN0ZAfXTBIbF6MYQW9GWnQZDZD"
-#
-# bot = Bot(PAGE_ACCESS_TOKEN)
+PAGE_ACCESS_TOKEN = "EAAL0VIHjZAZAgBAIg0QRTxz3oEYXL6vr8crg5YCuIapca1AZAcghDCLg2QbX7epmw7WJtWSWqGZAk0KhdeTcHMBrM4cDZCZCLtzYIj04tZA4jp4XkCDWrxERZAZCmE1EZAjGOMF0ejS1zxaX4awgFZC4NZB5IaN0ZAfXTBIbF6MYQW9GWnQZDZD"
+
+bot = Bot(PAGE_ACCESS_TOKEN)
 
 
 @app.route('/', methods=['GET'])
@@ -24,26 +24,26 @@ def webhook():
 	data = request.get_json()
 	pprint(data)
 
-	# if data['object'] == 'page':
-	# 	for entry in data['entry']:
-	# 		for messaging_event in entry['messaging']:
-    #
-	# 			# IDs
-	# 			sender_id = messaging_event['sender']['id']
-	# 			recipient_id = messaging_event['recipient']['id']
-    #
-	# 			if messaging_event.get('message'):
-	# 				# Extracting text message
-	# 				if 'text' in messaging_event['message']:
-	# 					messaging_text = messaging_event['message']['text']
-	# 				else:
-	# 					messaging_text = 'no text'
-    #
-	# 				# Echo
-	# 				response = messaging_text
-	# 				bot.send_text_message(sender_id, response)
-    #
-	# return "ok", 200
+	if data['object'] == 'page':
+		for entry in data['entry']:
+			for messaging_event in entry['messaging']:
+
+				# IDs
+				sender_id = messaging_event['sender']['id']
+				recipient_id = messaging_event['recipient']['id']
+
+				if messaging_event.get('message'):
+					# Extracting text message
+					if 'text' in messaging_event['message']:
+						messaging_text = messaging_event['message']['text']
+					else:
+						messaging_text = 'no text'
+
+					# Echo
+					response = messaging_text
+					bot.send_text_message(sender_id, response)
+
+	return "ok", 200
 
 
 def log(message):
