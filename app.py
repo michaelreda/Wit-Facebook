@@ -35,6 +35,11 @@ def webhook():
 				sender_id = messaging_event['sender']['id']
 				recipient_id = messaging_event['recipient']['id']
 
+				#managing sessions
+				import datetime
+				current_time= datetime.datetime.utcnow()
+				db.sessions.update_one({'sender_id':sender_id},{'last_commit':current_time}, {upsert:true}) # if-find-else-update
+
 				if messaging_event.get('message'):
 					# Extracting text message
 					if 'text' in messaging_event['message']:
@@ -81,7 +86,7 @@ def webhook():
 							elif entity["name"] == 'bye':
 								response = "bye"
 
-
+					#machine learning part
 					if response == None:
 						#if no response then check unkonws
 						message= db.unkown.find_one({'message':messaging_text});
