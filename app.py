@@ -47,8 +47,8 @@ def webhook():
 						response = "Ok, mawa3id {} : kol you el sa3a 10".format(str(value))
 					elif entity == 'thanks':
 						response = "you are welcome ;)".format(str(value))
-                    elif entity == 'greetings'
-                        response = "Hello".format(str(value))
+					elif entity == 'greetings':
+						response = "Hello".format(str(value))
 
 					if response == None:
 						response = "I have no idea what you are saying!"
