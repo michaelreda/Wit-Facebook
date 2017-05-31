@@ -1,7 +1,8 @@
 import os, sys
 from flask import Flask, request
-from pprint import pprint
+from utils import wit_response
 from pymessenger import Bot
+from pprint import pprint
 
 app = Flask(__name__)
 
@@ -22,7 +23,7 @@ def verify():
 @app.route('/', methods=['POST'])
 def webhook():
 	data = request.get_json()
-	pprint(data)
+	log(data)
 
 	if data['object'] == 'page':
 		for entry in data['entry']:
@@ -39,8 +40,19 @@ def webhook():
 					else:
 						messaging_text = 'no text'
 
-					# Echo
-					response = messaging_text
+					response = None
+
+					entity, value = wit_response(messaging_text)
+					if entity == 'mosalsal':
+						response = "Ok, mawa3id {} : kol you el sa3a 10".format(str(value))
+					elif entity == 'thanks':
+						response = "you are welcome ;)".format(str(value))
+                    elif entity == 'greetings'
+                        response = "Hello".format(str(value))
+
+					if response == None:
+						response = "I have no idea what you are saying!"
+
 					bot.send_text_message(sender_id, response)
 
 	return "ok", 200
