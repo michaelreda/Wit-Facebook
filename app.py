@@ -50,13 +50,13 @@ def verify():
 # 	print(message)
 # 	sys.stdout.flush()
 
-ON_HEROKU = os.environ.get('ON_HEROKU')
-
-if ON_HEROKU:
-    # get the heroku port
-    port_num = int(os.environ.get('PORT', 17995))  # as per OP comments default is 17995
-else:
-    port_num = 3000
+# ON_HEROKU = os.environ.get('ON_HEROKU')
+#
+# if ON_HEROKU:
+#     # get the heroku port
+#     port_num = int(os.environ.get('PORT', 17995))  # as per OP comments default is 17995
+# else:
+#     port_num = 3000
 
 if __name__ == "__main__":
 	app.run()
