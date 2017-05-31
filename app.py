@@ -59,4 +59,4 @@ else:
     port_num = 3000
 
 if __name__ == "__main__":
-	app.run(port=port_num)
+	app.run(port=33507)
