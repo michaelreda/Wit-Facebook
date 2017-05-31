@@ -1,5 +1,6 @@
 import os, sys
 from flask import Flask, request
+from pprint import pprint
 # from pymessenger import Bot
 
 app = Flask(__name__)
@@ -18,11 +19,9 @@ def verify():
         return request.args["hub.challenge"], 200
     return "Hello world!", 200
 
-
 @app.route('/', methods=['POST'])
 def webhook():
 	data = request.get_json()
-    import pprint from pprint
 	pprint(data)
 
 	# if data['object'] == 'page':
