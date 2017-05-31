@@ -22,4 +22,4 @@ def wit_response(message_text):
 
 	return entities
 
-pprint(wit_response("remind me with harbana menha"))
+# pprint(wit_response("remind me with harbana menha"))
