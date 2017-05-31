@@ -54,13 +54,13 @@ def webhook():
 					#checking for mosalsal
 					for entity in entities:
 						pprint(entity)
-						if entity.name == 'mosalsal':
-							mosalsal= entity.value
+						if entity["name"] == 'mosalsal':
+							mosalsal= entity["value"]
 							# response = "Ok, mawa3id {} : kol you el sa3a 10".format(str(value))
 
 					#checking for reminders
 					for entity in entities:
-						if entity.name == 'reminderUser':
+						if entity["name"] == 'reminderUser':
 							reminder=True
 							if mosalsal == None:
 								response="please enter esm el mosalsal.."
@@ -72,9 +72,9 @@ def webhook():
 					if mosalsal!=None and not reminder:
 						response= "mosalsal "+str(mosalsal)+" beyeegy kol youm el sa3a 10"
 					elif entity == 'thanks':
-						response = "you are welcome ;)".format(str(value))
+						response = "you are welcome ;)"
 					elif entity == 'greetings':
-						response = "Hello".format(str(value))
+						response = "Hello"
 
 
 					if response == None:
