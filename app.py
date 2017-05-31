@@ -46,7 +46,7 @@ def webhook():
 					entities = wit_response(messaging_text)
 					dir_path = os.path.dirname(os.path.realpath(__file__))
 					print(dir_path)
-					file = open('/sessions/'+sender_id+'.json', 'w+')
+					file = open('/app/sessions/'+sender_id+'.json', 'w+')
 					pprint(json.load(file))
 
 					mosalsal=None
