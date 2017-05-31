@@ -71,10 +71,12 @@ def webhook():
 					#if no reminder and there is a mosalsal then show schedule
 					if mosalsal!=None and not reminder:
 						response= "mosalsal "+str(mosalsal)+" beyeegy kol youm el sa3a 10"
-					elif entity["name"] == 'thanks':
-						response = "you are welcome ;)"
-					elif entity["name"] == 'greetings':
-						response = "Hello"
+					else:
+						for entity in entities:
+							if entity["name"] == 'thanks':
+								response = "you are welcome ;)"
+							elif entity["name"] == 'greetings':
+								response = "Hello"
 
 
 					if response == None:
