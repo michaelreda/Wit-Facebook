@@ -59,4 +59,4 @@ else:
     port_num = 3000
 
 if __name__ == "__main__":
-	app.run(debug = True, port_num = 80)
+	app.run()
