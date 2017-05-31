@@ -1,0 +1,29 @@
+{
+  "data" : {
+    "lookups" : [
+      "free-text",
+      "keywords"
+    ],
+    "name" : "reminderUser",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "reminderUser",
+    "values" : [
+      {
+        "value" : "fakarny",
+        "expressions" : [
+          "fakarny"
+        ]
+      },
+      {
+        "value" : "reminder",
+        "expressions" : [
+          "remind",
+          "reminder"
+        ]
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

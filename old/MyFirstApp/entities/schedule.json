@@ -1,0 +1,29 @@
+{
+  "data" : {
+    "lookups" : [
+      "free-text",
+      "keywords",
+      "trait"
+    ],
+    "name" : "schedule",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "schedule",
+    "values" : [
+      {
+        "value" : "emta"
+      },
+      {
+        "value" : "schedule"
+      },
+      {
+        "value" : "when",
+        "expressions" : [
+          "when"
+        ]
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

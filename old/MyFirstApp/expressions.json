@@ -1,0 +1,273 @@
+{
+  "data" : [
+    {
+      "text" : "I am looking for mosalsal la totfe2 el shams",
+      "entities" : [
+        {
+          "entity" : "mosalsal",
+          "value" : "\"la totfe2 el shams\"",
+          "start" : 26,
+          "end" : 44
+        }
+      ]
+    },
+    {
+      "text" : "emta harbana menha",
+      "entities" : [
+        {
+          "entity" : "schedule",
+          "value" : "\"emta\""
+        },
+        {
+          "entity" : "mosalsal",
+          "value" : "\"harbana menha\"",
+          "start" : 0,
+          "end" : 9
+        }
+      ]
+    },
+    {
+      "text" : "emta hayeegy harbana menha",
+      "entities" : [
+        {
+          "entity" : "schedule",
+          "value" : "\"emta\""
+        },
+        {
+          "entity" : "mosalsal",
+          "value" : "\"harbana menha\"",
+          "start" : 13,
+          "end" : 26
+        }
+      ]
+    },
+    {
+      "text" : "emta heyggy harbana menha",
+      "entities" : [
+        {
+          "entity" : "schedule",
+          "value" : "\"emta\""
+        },
+        {
+          "entity" : "mosalsal",
+          "value" : "\"harbana menha\"",
+          "start" : 12,
+          "end" : 25
+        }
+      ]
+    },
+    {
+      "text" : "emta kda beyeegy la totfe2 el shams?",
+      "entities" : [
+        {
+          "entity" : "schedule",
+          "value" : "\"emta\""
+        },
+        {
+          "entity" : "mosalsal",
+          "value" : "\"la totfe2 el shams\"",
+          "start" : 17,
+          "end" : 35
+        }
+      ]
+    },
+    {
+      "text" : "emta kda beyegy mosalsal harabana menha ?",
+      "entities" : [
+        {
+          "entity" : "schedule",
+          "value" : "\"emta\""
+        }
+      ]
+    },
+    {
+      "text" : "fakarny b mosalsal harbana menha",
+      "entities" : [
+        {
+          "entity" : "reminderUser",
+          "value" : "\"fakarny\"",
+          "start" : 0,
+          "end" : 7
+        },
+        {
+          "entity" : "mosalsal",
+          "value" : "\"harbana menha\"",
+          "start" : 19,
+          "end" : 32
+        }
+      ]
+    },
+    {
+      "text" : "hello",
+      "entities" : [
+        {
+          "entity" : "greetings",
+          "value" : "\"true\""
+        }
+      ]
+    },
+    {
+      "text" : "herebna menha",
+      "entities" : [
+        {
+          "entity" : "mosalsal",
+          "value" : "\"harbana menha\"",
+          "start" : 0,
+          "end" : 13
+        }
+      ]
+    },
+    {
+      "text" : "i need a reminder with la totfe2 el shams",
+      "entities" : [
+        {
+          "entity" : "mosalsal",
+          "value" : "\"la totfe2 el shams\"",
+          "start" : 23,
+          "end" : 41
+        }
+      ]
+    },
+    {
+      "text" : "mosalsal el harbana menha",
+      "entities" : [
+        {
+          "entity" : "mosalsal",
+          "value" : "\"harbana menha\"",
+          "start" : 12,
+          "end" : 25
+        }
+      ]
+    },
+    {
+      "text" : "mosalsal la tofe2 el shams",
+      "entities" : [
+        {
+          "entity" : "mosalsal",
+          "value" : "\"la totfe2 el shams\"",
+          "start" : 9,
+          "end" : 26
+        }
+      ]
+    },
+    {
+      "text" : "ok remind me with it",
+      "entities" : [
+        {
+          "entity" : "reminderUser",
+          "value" : "\"reminder\"",
+          "start" : 3,
+          "end" : 9
+        }
+      ]
+    },
+    {
+      "text" : "remind me please lel mosalsal beta3 la totfe2 el shams",
+      "entities" : [
+        {
+          "entity" : "mosalsal",
+          "value" : "\"la totfe2 el shams\"",
+          "start" : 36,
+          "end" : 54
+        }
+      ]
+    },
+    {
+      "text" : "remind me please with la totfe2 el shams",
+      "entities" : [
+        {
+          "entity" : "reminderUser",
+          "value" : "\"reminder\"",
+          "start" : 0,
+          "end" : 6
+        },
+        {
+          "entity" : "mosalsal",
+          "value" : "\"la totfe2 el shams\"",
+          "start" : 22,
+          "end" : 40
+        }
+      ]
+    },
+    {
+      "text" : "remind me with la totfe2 el shams",
+      "entities" : [
+        {
+          "entity" : "mosalsal",
+          "value" : "\"la totfe2 el shams\"",
+          "start" : 15,
+          "end" : 33
+        }
+      ]
+    },
+    {
+      "text" : "remind me with mosalsal harbana menha",
+      "entities" : [
+        {
+          "entity" : "reminderUser",
+          "value" : "\"reminder\"",
+          "start" : 0,
+          "end" : 6
+        },
+        {
+          "entity" : "mosalsal",
+          "value" : "\"harbana menha\"",
+          "start" : 24,
+          "end" : 37
+        }
+      ]
+    },
+    {
+      "text" : "remind me with mosalsal la totfe2 el shams",
+      "entities" : [
+        {
+          "entity" : "mosalsal",
+          "value" : "\"la totfe2 el shams\"",
+          "start" : 24,
+          "end" : 42
+        }
+      ]
+    },
+    {
+      "text" : "show me schedule of harbana menha",
+      "entities" : [
+        {
+          "entity" : "schedule",
+          "value" : "\"schedule\""
+        },
+        {
+          "entity" : "mosalsal",
+          "value" : "\"harbana menha\"",
+          "start" : 20,
+          "end" : 33
+        }
+      ]
+    },
+    {
+      "text" : "thank you",
+      "entities" : [
+        {
+          "entity" : "thanks",
+          "value" : "\"true\""
+        }
+      ]
+    },
+    {
+      "text" : "when is harbana menha",
+      "entities" : [
+        {
+          "entity" : "schedule",
+          "value" : "\"when\"",
+          "start" : 0,
+          "end" : 4
+        },
+        {
+          "entity" : "mosalsal",
+          "value" : "\"harbana menha\"",
+          "start" : 8,
+          "end" : 21
+        }
+      ]
+    }
+  ]
+}

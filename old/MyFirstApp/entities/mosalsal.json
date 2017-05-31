@@ -1,0 +1,53 @@
+{
+  "data" : {
+    "lookups" : [
+      "free-text",
+      "keywords"
+    ],
+    "name" : "mosalsal",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "mosalsal",
+    "values" : [
+      {
+        "value" : "el halal",
+        "expressions" : [
+          "al 7alal",
+          "al halal",
+          "el 7alal",
+          "el halal"
+        ]
+      },
+      {
+        "value" : "fel lala land",
+        "expressions" : [
+          "fel la la land",
+          "fel lala land",
+          "fl lala land"
+        ]
+      },
+      {
+        "value" : "harbana menha",
+        "expressions" : [
+          "harbana menha",
+          "herebna menha"
+        ]
+      },
+      {
+        "value" : "la totfe2 el shams",
+        "expressions" : [
+          "la tofe2 el shams",
+          "la totfe2 el shams"
+        ]
+      },
+      {
+        "value" : "lam3y el ot",
+        "expressions" : [
+          "lam3y el ot"
+        ]
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

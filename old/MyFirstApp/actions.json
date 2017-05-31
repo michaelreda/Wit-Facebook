@@ -1,0 +1,66 @@
+{
+  "data" : [
+    {
+      "id" : "function-setMosalsal",
+      "type" : "function",
+      "name" : "setMosalsal"
+    },
+    {
+      "id" : "function-setReminder",
+      "type" : "function",
+      "name" : "setReminder"
+    },
+    {
+      "id" : "template-I didn't find it please try again.. ",
+      "type" : "template",
+      "template" : "I didn't find it please try again.. "
+    },
+    {
+      "id" : "template-hello",
+      "type" : "template",
+      "template" : "hello"
+    },
+    {
+      "id" : "template-hello, what are you looking for?",
+      "type" : "template",
+      "template" : "hello, what are you looking for?"
+    },
+    {
+      "id" : "template-ok I will remind you with it ;)",
+      "type" : "template",
+      "template" : "ok I will remind you with it ;)"
+    },
+    {
+      "id" : "template-ok I will remind you with {mosalsal} ;)",
+      "type" : "template",
+      "template" : "ok I will remind you with {mosalsal} ;)",
+      "requirements" : [
+        {
+          "name" : "mosalsal",
+          "negative" : false
+        }
+      ]
+    },
+    {
+      "id" : "template-ok here are the timings for {mosalsal}",
+      "type" : "template",
+      "template" : "ok here are the timings for {mosalsal}",
+      "requirements" : [
+        {
+          "name" : "mosalsal",
+          "negative" : false
+        }
+      ]
+    },
+    {
+      "id" : "template-what are you looking for?",
+      "type" : "template",
+      "template" : "what are you looking for?"
+    },
+    {
+      "id" : "template-you are welcome ;)",
+      "type" : "template",
+      "template" : "you are welcome ;)"
+    }
+  ]
+}

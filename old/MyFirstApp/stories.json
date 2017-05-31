@@ -1,0 +1,132 @@
+{
+  "data" : [
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "hello",
+          "entities" : [
+            {
+              "entity" : "greetings",
+              "value" : "\"true\""
+            }
+          ],
+          "operations" : [
+            {
+              "action" : "template-hello"
+            },
+            {
+              "bookmark" : "getMosalsalNameBookmark"
+            },
+            {
+              "action" : "template-what are you looking for?"
+            }
+          ]
+        },
+        {
+          "user" : "mosalsal la tofe2 el shams",
+          "entities" : [
+            {
+              "entity" : "mosalsal",
+              "value" : "\"la totfe2 el shams\"",
+              "start" : 9,
+              "end" : 26
+            }
+          ],
+          "operations" : [
+            {
+              "action" : "function-setMosalsal"
+            },
+            {
+              "branches" : [
+                {
+                  "predicates" : [
+                    {
+                      "name" : "mosalsal",
+                      "negative" : false
+                    }
+                  ],
+                  "operations" : [
+                    {
+                      "action" : "template-ok here are the timings for {mosalsal}"
+                    }
+                  ],
+                  "turns" : [
+                    {
+                      "branches" : [
+                        [
+                          {
+                            "user" : "ok remind me with it",
+                            "entities" : [
+                              {
+                                "entity" : "reminderUser",
+                                "value" : "\"reminder\"",
+                                "start" : 3,
+                                "end" : 9
+                              }
+                            ],
+                            "operations" : [
+                              {
+                                "action" : "function-setReminder"
+                              },
+                              {
+                                "branches" : [
+                                  {
+                                    "predicates" : [
+                                      {
+                                        "name" : "reminderUser",
+                                        "negative" : false
+                                      }
+                                    ],
+                                    "operations" : [
+                                      {
+                                        "action" : "template-ok I will remind you with it ;)"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        [
+                          {
+                            "user" : "thank you",
+                            "entities" : [
+                              {
+                                "entity" : "thanks",
+                                "value" : "\"true\""
+                              }
+                            ],
+                            "operations" : [
+                              {
+                                "action" : "template-you are welcome ;)"
+                              }
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "predicates" : [
+                    {
+                      "name" : "missing mosalsal",
+                      "negative" : false
+                    }
+                  ],
+                  "operations" : [
+                    {
+                      "action" : "template-I didn't find it please try again.. "
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

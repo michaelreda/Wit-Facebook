@@ -1,0 +1,18 @@
+{
+  "data" : {
+    "lookups" : [
+      "trait"
+    ],
+    "name" : "thanks",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "thanks",
+    "values" : [
+      {
+        "value" : "true"
+      }
+    ],
+    "doc" : "{\"spanless\":true,\"short_desc\":\"captures thankful intent\",\"long_desc\":\"BETA - Binary trait entity that captures grateful intents (example: 'thank you'). No need to highlight a specific part (or span) in the sentence.\",\"examples\":[{\"expression\":[\"\",\"thanks\",\"\"],\"response\":\"\\\"entities\\\" : {\\n      \\\"thanks\\\" : [ {\\n        \\\"value\\\" : \\\"true\\\"\\n      } ]\\n    }\"}]}",
+    "builtin" : true
+  }
+}
