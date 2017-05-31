@@ -84,13 +84,13 @@ def webhook():
 
 					if response == None:
 						#if no response then check unkonws
-						message= db.unkown.find({'message':messaging_text});
+						message= db.unkown.find_one({'message':messaging_text});
 						print(message)
 						if message==None: #if message not found insert it
 							db.unkown.insert({'sender_id':sender_id,'message':messaging_text})
 							response = "I have no idea what you are saying.. I'm still learning"
-						elif message.answer!= None: #if there is an answer then send it
-							response= message.answer
+						elif message['answer']!= None: #if there is an answer then send it
+							response= message['answer']
 						else: #if saved but no answer then send i don't know it
 							response = "I have no idea what you are saying.. I'm still learning"
 
