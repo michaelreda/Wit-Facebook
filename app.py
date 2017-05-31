@@ -14,11 +14,11 @@ bot = Bot(PAGE_ACCESS_TOKEN)
 @app.route('/', methods=['GET'])
 def verify():
 	# Webhook verification
-    if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
-        if not request.args.get("hub.verify_token") == "just_do_it":
-            return "Verification token mismatch", 403
-        return request.args["hub.challenge"], 200
-    return "Hello world!", 200
+	if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
+		if not request.args.get("hub.verify_token") == "just_do_it":
+			return "Verification token mismatch", 403
+		return request.args["hub.challenge"], 200
+	return "Hello world!", 200
 
 @app.route('/', methods=['POST'])
 def webhook():
@@ -46,32 +46,32 @@ def webhook():
 					mosalsal=None
 					reminder= False
 					#checking for mosalsal
-					for entity in entities
-					if entity.name == 'mosalsal':
-                            mosalsal= entity.value
-    						# response = "Ok, mawa3id {} : kol you el sa3a 10".format(str(value))
+					for entity in entities:
+						if entity.name == 'mosalsal':
+							mosalsal= entity.value
+							# response = "Ok, mawa3id {} : kol you el sa3a 10".format(str(value))
 
-                    #checking for reminders
-					for entity in entities
-    					if entity.name == 'reminderUser':
-                            reminder=True
-                            if mosalsal == None:
-                                response="please enter esm el mosalsal.."
-                            else:
-                                response="Ok I'll remind you with mosalsal "+str(mosalsal)
-
-
-                    #if no reminder and there is a mosalsal then show schedule
-                    if mosalsal!=None && !reminder:
-                        response= "mosalsal "+str(mosalsal)+" beyeegy kol youm el sa3a 10"
-                    elif entity == 'thanks':
-    					response = "you are welcome ;)".format(str(value))
-    				elif entity == 'greetings':
-    					response = "Hello".format(str(value))
+					#checking for reminders
+					for entity in entities:
+						if entity.name == 'reminderUser':
+							reminder=True
+							if mosalsal == None:
+								response="please enter esm el mosalsal.."
+							else:
+								response="Ok I'll remind you with mosalsal "+str(mosalsal)
 
 
-    				if response == None:
-    					response = "I have no idea what you are saying!"
+					#if no reminder and there is a mosalsal then show schedule
+					if mosalsal!=None and not reminder:
+						response= "mosalsal "+str(mosalsal)+" beyeegy kol youm el sa3a 10"
+					elif entity == 'thanks':
+						response = "you are welcome ;)".format(str(value))
+					elif entity == 'greetings':
+						response = "Hello".format(str(value))
+
+
+					if response == None:
+						response = "I have no idea what you are saying!"
 
 					bot.send_text_message(sender_id, response)
 
