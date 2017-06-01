@@ -83,7 +83,7 @@ def webhook():
 						timings_str=""
 						for timing in mosalsal["timings"]:
 							timings_str+="at "
-							timings_str+=timing["timings"]
+							timings_str+=timing["timing"]
 							timings_str+=" on "
 							timings_str+=timing["channel"]
 							timings_str+="\n"
