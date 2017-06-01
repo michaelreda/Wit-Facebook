@@ -102,6 +102,7 @@ def webhook():
 						else: #if saved but no answer then send i don't know it
 							response = "I have no idea what you are saying.. I'm still learning"
 
+					db.sessions.save(session)
 					bot.send_text_message(sender_id, response)
 
 	return "ok", 200
