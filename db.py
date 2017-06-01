@@ -38,5 +38,5 @@ def set_reminder(mosalsal_name,timing_num,sender_id):
 		Done=True
 	else:
 		response="please enter a number from 1 to "+str(len(mosalsal["timings"]))+" .. \n"
-		response+= get_mosalsal_timing(mosalsal)
+		response+= get_mosalsal_timing(mosalsal_name)
 	return (response,Done)

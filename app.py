@@ -83,7 +83,7 @@ def webhook():
 							else:
 								# response="Ok I'll remind you with mosalsal "+str(session["mosalsal"])
 								from db import get_mosalsal_timing
-								response="Ok please select a timing number to remind you with.."
+								response="Ok please select a timing number to remind you with..\n"
 								response+= get_mosalsal_timing(session.get("mosalsal"))
 								session["waiting_for_reminder_time"]=True
 
