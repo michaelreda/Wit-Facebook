@@ -83,10 +83,11 @@ def webhook():
 						timings_str=""
 						for timing in mosalsal["timings"]:
 							timings_str+="at "
-							timings_str+=timing["timing"]
+							timings_str+=timing["time"]
 							timings_str+=" on "
 							timings_str+=timing["channel"]
 							timings_str+="\n"
+
 						response= timings_str
 					else:
 						for entity in entities:
