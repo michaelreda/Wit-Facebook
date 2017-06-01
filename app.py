@@ -108,7 +108,7 @@ def webhook():
 									{'title': 'Cancel', 'payload': 'canel_reminder'}
 								]
 								sent_by_fbmq=True
-								page.send(sender_id,"Ok please select a timing number to remind you with..1)at 1:00AM on cbc 2)at 3:00AM on cbc+2 3)at 3:00AM on cbc drama 4)at 7:00AM on cbc drama 5)at 10:30AM on cbc 6)at 12:30PM on cbc+2 7)at 1:00PM on cbc drama  8)at 5:00PM on cbc drama 9)at 8:15PM on cbc 10)at 10:15PM on cbc+2 11)at 11:00PM on cbc drama",quick_replies=quick_replies,metadata="DEVELOPER_DEFINED_METADATA")
+								page.send(sender_id,str(response),quick_replies=quick_replies,metadata="DEVELOPER_DEFINED_METADATA")
 
 
 					#if no reminder and there is a mosalsal then show schedule
