@@ -61,8 +61,9 @@ def webhook():
 					#checking for reminder Time
 					if session.get("waiting_for_reminder_time") !=None:
 						from db import set_reminder
-						response=set_reminder(session.get("mosalsal"),int(messaging_text),sender_id)
-						session["waiting_for_reminder_time"]= None
+						response,Done=set_reminder(session.get("mosalsal"),int(messaging_text),sender_id)
+						if Done:
+							session["waiting_for_reminder_time"]= None
 					mosalsal=None
 					reminder= False
 					#checking for mosalsal
