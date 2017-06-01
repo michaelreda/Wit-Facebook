@@ -79,7 +79,16 @@ def webhook():
 
 					#if no reminder and there is a mosalsal then show schedule
 					if session.get("mosalsal")!=None and not reminder:
-						response= "mosalsal "+str(session["mosalsal"])+" beyeegy kol youm el sa3a 10"
+						print(session.get("mosalsal"))
+						mosalsal= db.mosalsalat.find_one({'name':session.get("mosalsal")})
+						timings_str=""
+						for timing in mosalsal.timings:
+							timings_str+="at "
+							timings_str+=timing["timings"]
+							timings_str+=" on "
+							timings_str+=timing["channel"]
+							timings_str+="\n"
+						response= timings_str
 					else:
 						for entity in entities:
 							if entity["name"] == 'thanks':
