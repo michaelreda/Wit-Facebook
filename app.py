@@ -38,8 +38,9 @@ def webhook():
 				#managing sessions
 				import datetime
 				current_time= datetime.datetime.utcnow()
-				session = db.sessions.update_one({'sender_id':sender_id}, {"$set": {"last_commit":current_time}}, upsert=True) # if-find-else-update
-				pprint(vars(session))
+				db.sessions.update_one({'sender_id':sender_id}, {"$set": {"last_commit":current_time}}, upsert=True) # if-find-else-update
+				session = db.sessions.find_one({'sender_id':sender_id})
+				print(session)
 
 				if messaging_event.get('message'):
 					# Extracting text message
@@ -63,21 +64,22 @@ def webhook():
 						# pprint(entity)
 						if entity["name"] == 'mosalsal':
 							mosalsal= entity["value"]
+							session["mosalsal"]=mosalsal
 							# response = "Ok, mawa3id {} : kol you el sa3a 10".format(str(value))
 
 					#checking for reminders
 					for entity in entities:
 						if entity["name"] == 'reminderUser':
 							reminder=True
-							if mosalsal == None:
+							if session["mosalsal"] == None :
 								response="please enter esm el mosalsal.."
 							else:
-								response="Ok I'll remind you with mosalsal "+str(mosalsal)
+								response="Ok I'll remind you with mosalsal "+str(session["mosalsal"])
 
 
 					#if no reminder and there is a mosalsal then show schedule
-					if mosalsal!=None and not reminder:
-						response= "mosalsal "+str(mosalsal)+" beyeegy kol youm el sa3a 10"
+					if session["mosalsal"]!=None and not reminder:
+						response= "mosalsal "+str(session["mosalsal"])+" beyeegy kol youm el sa3a 10"
 					else:
 						for entity in entities:
 							if entity["name"] == 'thanks':
