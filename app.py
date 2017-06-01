@@ -74,21 +74,17 @@ def webhook():
 							if session.get("mosalsal") == None :
 								response="please enter esm el mosalsal.."
 							else:
-								response="Ok I'll remind you with mosalsal "+str(session["mosalsal"])
+								# response="Ok I'll remind you with mosalsal "+str(session["mosalsal"])
+								from db import get_mosalsal_timing
+								response="Ok please select a timing number to remind you with.."
+								response+= get_mosalsal_timing(session.get("mosalsal"))
 
 
 					#if no reminder and there is a mosalsal then show schedule
-					if session.get("mosalsal")!=None and not reminder:
-						mosalsal= db.mosalsalat.find_one({'name':session.get("mosalsal")})
-						timings_str=""
-						for timing in mosalsal["timings"]:
-							timings_str+="at "
-							timings_str+=timing["time"]
-							timings_str+=" on "
-							timings_str+=timing["channel"]
-							timings_str+="\n"
 
-						response= timings_str
+					if session.get("mosalsal")!=None and not reminder:
+						from db import get_mosalsal_timing
+						response= get_mosalsal_timing(session.get("mosalsal"))
 					else:
 						for entity in entities:
 							if entity["name"] == 'thanks':
