@@ -38,7 +38,8 @@ def webhook():
 				#managing sessions
 				import datetime
 				current_time= datetime.datetime.utcnow()
-				db.sessions.update_one({'sender_id':sender_id}, {"$set": {"last_commit":current_time}}, upsert=True) # if-find-else-update
+				session = db.sessions.update_one({'sender_id':sender_id}, {"$set": {"last_commit":current_time}}, upsert=True) # if-find-else-update
+				pprint(session)
 
 				if messaging_event.get('message'):
 					# Extracting text message
@@ -113,7 +114,7 @@ import threading
 def clear_sessions():
 	db.sessions.remove()
 	print("sessions cleared")
-	threading.Timer(30*10, clear_sessions).start() #every 30minutes clear sessions
+	threading.Timer(30*60, clear_sessions).start() #every 30minutes clear sessions
 
 clear_sessions()
 
