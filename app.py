@@ -6,6 +6,15 @@ from pprint import pprint
 import json
 from db import db
 
+
+
+app = Flask(__name__)
+
+PAGE_ACCESS_TOKEN = "EAAL0VIHjZAZAgBAIg0QRTxz3oEYXL6vr8crg5YCuIapca1AZAcghDCLg2QbX7epmw7WJtWSWqGZAk0KhdeTcHMBrM4cDZCZCLtzYIj04tZA4jp4XkCDWrxERZAZCmE1EZAjGOMF0ejS1zxaX4awgFZC4NZB5IaN0ZAfXTBIbF6MYQW9GWnQZDZD"
+
+bot = Bot(PAGE_ACCESS_TOKEN)
+
+
 from fbmq import Page,Template
 
 PAGE_ACCESS_TOKEN = "EAAL0VIHjZAZAgBAIg0QRTxz3oEYXL6vr8crg5YCuIapca1AZAcghDCLg2QbX7epmw7WJtWSWqGZAk0KhdeTcHMBrM4cDZCZCLtzYIj04tZA4jp4XkCDWrxERZAZCmE1EZAjGOMF0ejS1zxaX4awgFZC4NZB5IaN0ZAfXTBIbF6MYQW9GWnQZDZD"
@@ -19,12 +28,6 @@ page.show_persistent_menu([Template.ButtonPostBack('MENU1', 'MENU_PAYLOAD/1'),
 def click_persistent_menu(payload, event):
   click_menu = payload.split('/')[1]
   print("you clicked %s menu" % click_menu)
-
-app = Flask(__name__)
-
-PAGE_ACCESS_TOKEN = "EAAL0VIHjZAZAgBAIg0QRTxz3oEYXL6vr8crg5YCuIapca1AZAcghDCLg2QbX7epmw7WJtWSWqGZAk0KhdeTcHMBrM4cDZCZCLtzYIj04tZA4jp4XkCDWrxERZAZCmE1EZAjGOMF0ejS1zxaX4awgFZC4NZB5IaN0ZAfXTBIbF6MYQW9GWnQZDZD"
-
-bot = Bot(PAGE_ACCESS_TOKEN)
 
 
 @app.route('/', methods=['GET'])
@@ -76,6 +79,12 @@ def webhook():
 					if session.get("waiting_for_reminder_time") !=None:
 						from db import set_reminder
 						response,Done=set_reminder(session.get("mosalsal"),int(messaging_text),sender_id)
+						quick_replies = [
+							QuickReply(title="Cancel", payload="canel_reminder")
+						]
+						page.send(sender_id,
+						response,
+						quick_replies=quick_replies)
 						if Done:
 							session["waiting_for_reminder_time"]= None
 					mosalsal=None
