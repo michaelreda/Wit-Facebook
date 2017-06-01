@@ -57,6 +57,12 @@ def webhook():
 					# file = open('/app/sessions/'+sender_id+'.json', 'w+')
 					# pprint(json.load(file))
 
+					#checking for responses i am waiting for
+					#checking for reminder Time
+					if session.get(waiting_for_reminder_time) !=None:
+						from db import set_reminder
+						response=set_reminder(session.get("mosalsal"),int(messaging_text),sender_id)
+
 					mosalsal=None
 					reminder= False
 					#checking for mosalsal
@@ -78,6 +84,7 @@ def webhook():
 								from db import get_mosalsal_timing
 								response="Ok please select a timing number to remind you with.."
 								response+= get_mosalsal_timing(session.get("mosalsal"))
+								session["waiting_for_reminder_time"]=True
 
 
 					#if no reminder and there is a mosalsal then show schedule
