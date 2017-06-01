@@ -108,11 +108,12 @@ def log(message):
 	print(message)
 	sys.stdout.flush()
 
+#clearing sessions
 import threading
 def clear_sessions():
 	db.sessions.remove()
 	print("sessions cleared")
-	threading.Timer(10, clear_sessions).start() #every 30minutes clear sessions
+	threading.Timer(30*10, clear_sessions).start() #every 30minutes clear sessions
 
 clear_sessions()
 
