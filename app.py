@@ -39,7 +39,7 @@ def webhook():
 				import datetime
 				current_time= datetime.datetime.utcnow()
 				session = db.sessions.update_one({'sender_id':sender_id}, {"$set": {"last_commit":current_time}}, upsert=True) # if-find-else-update
-				pprint(session.__repr__())
+				pprint(vars(session))
 
 				if messaging_event.get('message'):
 					# Extracting text message
@@ -60,7 +60,7 @@ def webhook():
 					reminder= False
 					#checking for mosalsal
 					for entity in entities:
-						pprint(entity)
+						# pprint(entity)
 						if entity["name"] == 'mosalsal':
 							mosalsal= entity["value"]
 							# response = "Ok, mawa3id {} : kol you el sa3a 10".format(str(value))
@@ -91,7 +91,7 @@ def webhook():
 					if response == None:
 						#if no response then check unkonws
 						message= db.unkown.find_one({'message':messaging_text});
-						print(message)
+						# print(message)
 						if message==None: #if message not found insert it
 							db.unkown.insert({'sender_id':sender_id,'message':messaging_text})
 							response = "I have no idea what you are saying.. I'm still learning"
@@ -106,7 +106,7 @@ def webhook():
 
 
 def log(message):
-	print(message)
+	# print(message)
 	sys.stdout.flush()
 
 #clearing sessions
