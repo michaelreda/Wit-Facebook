@@ -139,7 +139,7 @@ def webhook():
 							response = "I have no idea what you are saying.. I'm still learning"
 
 					db.sessions.save(session)
-					if !sent_by_fbmq:
+					if not sent_by_fbmq:
 						bot.send_text_message(sender_id, response)
 
 	return "ok", 200
