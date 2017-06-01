@@ -51,7 +51,7 @@ def webhook():
 				# IDs
 				sender_id = messaging_event['sender']['id']
 				recipient_id = messaging_event['recipient']['id']
-				sent_by_fbmq=FalseS
+				sent_by_fbmq=False
 				#managing sessions
 				import datetime
 				current_time= datetime.datetime.utcnow()
