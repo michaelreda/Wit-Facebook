@@ -22,17 +22,17 @@ def get_mosalsal_timing(mosalsal):
 		i+=1
 	return timings_str
 
-def set_reminder(mosalsal,timing_num,sender_id):
-	mosalsal= db.mosalsalat.find_one({'name':mosalsal})
+def set_reminder(mosalsal_name,timing_num,sender_id):
+	mosalsal= db.mosalsalat.find_one({'name':mosalsal_name})
 	if(timing_num<=len(mosalsal["timings"]) and timing_num>0):
 		timing = mosalsal["timings"][timing_num-1]
 		db.reminders.save({
 		"sender_id":sender_id,
-		"mosalsal":mosalsal,
+		"mosalsal":mosalsal_name,
 		"time":timing["time"],
 		"channel":timing["channel"]
 		})
-		response="Ok reminder set for mosalsal "+mosalsal+" everyday at "+timing["time"]+" on "+timing["channel"]+"."
+		response="Ok reminder set for mosalsal "+mosalsal_name+" everyday at "+timing["time"]+" on "+timing["channel"]+"."
 		response+="\nYou can check your reminders by writing my reminders."
 	else:
 		response="please enter a number from 1 to "+len(mosalsal["timings"])+" .. \n"
