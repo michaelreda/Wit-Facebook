@@ -51,7 +51,7 @@ def webhook():
 				# IDs
 				sender_id = messaging_event['sender']['id']
 				recipient_id = messaging_event['recipient']['id']
-
+				sent_by_fbmq=FalseS
 				#managing sessions
 				import datetime
 				current_time= datetime.datetime.utcnow()
@@ -107,7 +107,8 @@ def webhook():
 								quick_replies = [
 									{'title': 'Cancel', 'payload': 'canel_reminder'}
 								]
-								page.send(sender_id,"What's your favorite movie genre?",quick_replies=quick_replies,metadata="DEVELOPER_DEFINED_METADATA")
+								sent_by_fbmq=True
+								page.send(sender_id,response,quick_replies=quick_replies,metadata="DEVELOPER_DEFINED_METADATA")
 
 
 					#if no reminder and there is a mosalsal then show schedule
@@ -138,7 +139,8 @@ def webhook():
 							response = "I have no idea what you are saying.. I'm still learning"
 
 					db.sessions.save(session)
-					bot.send_text_message(sender_id, response)
+					if !sent_by_fbmq:
+						bot.send_text_message(sender_id, response)
 
 	return "ok", 200
 
