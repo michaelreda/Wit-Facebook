@@ -107,8 +107,7 @@ def webhook():
 								quick_replies = [
 									{'title': 'Cancel', 'payload': 'canel_reminder'}
 								]
-								page.send(sender_id,
-								quick_replies=quick_replies)
+								page.send(sender_id,"What's your favorite movie genre?",quick_replies=quick_replies,metadata="DEVELOPER_DEFINED_METADATA")
 
 
 					#if no reminder and there is a mosalsal then show schedule
