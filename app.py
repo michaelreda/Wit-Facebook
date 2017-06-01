@@ -158,6 +158,10 @@ def clear_sessions():
 
 clear_sessions()
 
+#cancel reminder callback
+@page.callback(['cancel_reminder'])
+def callback_cancel_reminder(payload, event):
+	pprint(payload, event)
 
 # ON_HEROKU = os.environ.get('ON_HEROKU')
 #
