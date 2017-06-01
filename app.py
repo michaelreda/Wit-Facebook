@@ -79,12 +79,7 @@ def webhook():
 					if session.get("waiting_for_reminder_time") !=None:
 						from db import set_reminder
 						response,Done=set_reminder(session.get("mosalsal"),int(messaging_text),sender_id)
-						quick_replies = [
-							QuickReply(title="Cancel", payload="canel_reminder")
-						]
-						page.send(sender_id,
-						response,
-						quick_replies=quick_replies)
+
 						if Done:
 							session["waiting_for_reminder_time"]= None
 					mosalsal=None
@@ -109,6 +104,12 @@ def webhook():
 								response="Ok please select a timing number to remind you with..\n"
 								response+= get_mosalsal_timing(session.get("mosalsal"))
 								session["waiting_for_reminder_time"]=True
+								quick_replies = [
+									{'title': 'Cancel', 'payload': 'canel_reminder'}
+								]
+								page.send(sender_id,
+								response,
+								quick_replies=quick_replies)
 
 
 					#if no reminder and there is a mosalsal then show schedule
