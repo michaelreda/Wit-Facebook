@@ -35,6 +35,6 @@ def set_reminder(mosalsal,timing_num,sender_id):
 		response="Ok reminder set for mosalsal "+mosalsal+" everyday at "+timing["time"]+" on "+timing["channel"]+"."
 		response+="\nYou can check your reminders by writing my reminders."
 	else:
-		response="please enter a number from 1 to len(mosalsal["timings"]).. \n"
+		response="please enter a number from 1 to "+len(mosalsal["timings"])+" .. \n"
 		response+= get_mosalsal_timing(mosalsal)
 	return response
