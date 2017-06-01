@@ -89,7 +89,7 @@ def webhook():
 
 					#if no reminder and there is a mosalsal then show schedule
 
-					if session.get("mosalsal")!=None and not reminder:
+					if mosalsal!=None and not reminder:
 						from db import get_mosalsal_timing
 						response= get_mosalsal_timing(session.get("mosalsal"))
 					else:
