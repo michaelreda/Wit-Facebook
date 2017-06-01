@@ -71,14 +71,14 @@ def webhook():
 					for entity in entities:
 						if entity["name"] == 'reminderUser':
 							reminder=True
-							if session["mosalsal"] == None :
+							if session.get("mosalsal") == None :
 								response="please enter esm el mosalsal.."
 							else:
 								response="Ok I'll remind you with mosalsal "+str(session["mosalsal"])
 
 
 					#if no reminder and there is a mosalsal then show schedule
-					if session["mosalsal"]!=None and not reminder:
+					if session.get("mosalsal")!=None and not reminder:
 						response= "mosalsal "+str(session["mosalsal"])+" beyeegy kol youm el sa3a 10"
 					else:
 						for entity in entities:
