@@ -108,7 +108,6 @@ def webhook():
 									{'title': 'Cancel', 'payload': 'canel_reminder'}
 								]
 								page.send(sender_id,
-								response,
 								quick_replies=quick_replies)
 
 
