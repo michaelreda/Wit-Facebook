@@ -14,7 +14,7 @@ def get_mosalsal_timing(mosalsal):
 	timings_str=""
 	i=1
 	for timing in mosalsal["timings"]:
-		timings_str+=i+")at "
+		timings_str+=str(i)+")at "
 		timings_str+=timing["time"]
 		timings_str+=" on "
 		timings_str+=timing["channel"]
