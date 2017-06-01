@@ -108,12 +108,13 @@ def log(message):
 	print(message)
 	sys.stdout.flush()
 
-
+import threading
 def clear_sessions():
 	db.sessions.remove()
+	print("sessions cleared")
+	threading.Timer(10, clear_sessions()).start() #every 30minutes clear sessions
 
-import threading
-threading.Timer(108000, clear_sessions()).start() #every 30minutes clear sessions
+clear_sessions()
 
 
 # ON_HEROKU = os.environ.get('ON_HEROKU')
