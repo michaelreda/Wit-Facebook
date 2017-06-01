@@ -24,7 +24,7 @@ def get_mosalsal_timing(mosalsal):
 
 def set_reminder(mosalsal_name,timing_num,sender_id):
 	mosalsal= db.mosalsalat.find_one({'name':mosalsal_name})
-	done=False
+	Done=False
 	if(timing_num<=len(mosalsal["timings"]) and timing_num>0):
 		timing = mosalsal["timings"][timing_num-1]
 		db.reminders.save({
